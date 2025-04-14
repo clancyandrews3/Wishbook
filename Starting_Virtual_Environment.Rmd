@@ -1,0 +1,47 @@
+---
+title: "Starting Virtual Environment"
+date: "2024-11-11"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Open a terminal in the directory of the repository. If you have not set up a virtual environment in that directory already, run
+
+\center
+
+```{verbatim, fig.align='center'}
+python3 -m venv venv
+```
+\raggedright
+
+After that, you will need to activate the virtual environment.
+
+\center
+
+```{verbatim, fig.align='center'}
+source venv/bin/activate
+```
+\raggedright
+
+To run the flask for testing, you will need to tell Flask how to import the project.
+
+\center
+
+```{verbatim, fig.align='center'}
+export FLASK_APP=wishlist.py
+```
+\raggedright
+
+Once that is done, you can run it:
+
+\center
+
+```{verbatim, fig.align='center'}
+flask run
+```
+\raggedright
+
+You can then observe the webpage at http://localhost:5000/.

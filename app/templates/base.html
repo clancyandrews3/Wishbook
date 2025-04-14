@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+      {% if title %}
+      <title>{{ title }} - Wishbook</title>
+      {% else %}
+      <title>Welcome to Wishbook!</title>
+      {% endif %}
+    </head>
+
+    <body>
+        <div>Wishbook: <a href="/index">Home</a></div>
+        <hr>
+        {% block content %}
+        
+        {% endblock %}
+    </body>
+
+</html>
