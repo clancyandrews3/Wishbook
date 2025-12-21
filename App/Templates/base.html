@@ -1,0 +1,54 @@
+<!doctype html>
+
+<!-- 
+The goal of this page is to setup a template
+navigation bar. Instead of programming this into every 
+html page, we can use this page as an inherited
+template that the other pages will use
+-->
+
+<html>
+
+    <head>
+      {% if title %}
+      <title>{{ title }} - Wishbook</title>
+      {% else %}
+      <title>Wishbook</title>
+      {% endif %}
+    </head>
+
+
+
+    <body>
+        <div> <!-- Navigation bar links -->
+            <a href="/index">Home</a>
+
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('login') }}">Login</a>
+
+            {% else %}
+            <a href="/index">Profile</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            
+            {% endif %}
+
+        </div>
+        
+
+        <hr>
+
+        <!-- Outputs the flash messages if there are any-->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </body>
+
+</html>

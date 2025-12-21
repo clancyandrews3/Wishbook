@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Wishbook</h1>
+    <h2>Register</h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+
+        <!-- Firstname input field setup and styling -->
+        <p>
+            {{ form.firstname.label }}<br>
+            {{ form.firstname(size=32) }}<br>
+            {% for error in form.firstname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <!-- Lastname input field setup and styling -->
+        <p>
+            {{ form.lastname.label }}<br>
+            {{ form.lastname(size=32) }}<br>
+            {% for error in form.lastname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <!-- Username input field setup and styling -->
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <!-- Email input field setup and styling -->
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <!-- Password input field setup and styling -->
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <!-- Re-entered Password input field setup and styling -->
+        <p>
+            {{ form.password_reentered.label }}<br>
+            {{ form.password_reentered(size=32) }}<br>
+            {% for error in form.password_reentered.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+
+        <p><a href="{{ url_for('login') }}">Have an account? Sign In!</a></p>
+
+    </form>
+{% endblock %}
